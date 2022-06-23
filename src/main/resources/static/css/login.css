@@ -1,0 +1,63 @@
+#one {
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    background-color: rgba(255,255,255,0.8);
+    width: 400px;
+    padding: 25px;
+    border-radius: 10px;
+    padding-bottom: 50px;
+}
+
+.login .text {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    margin: 25px;
+}
+
+.login .one{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .one .name {
+
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.login .one input{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 3px;
+    border:none;
+}
+
+.login .submit button{
+    display: block;
+    width: 300px;
+    height: 40px;
+    background-color: rgb(41, 128, 0);
+    margin: 0 auto;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.login .submit button:hover{
+    background-color: rgba(41,128,0,0.8);
+}
+
+.login .submit button:active{
+    background-color: white;
+    color:rgb(41, 128, 0);
+}

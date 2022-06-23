@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/moreList.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<div class="nav">
+  <img src="../image/头像.jpg" alt="头像">
+  <span class="title">我的博客系统</span>
+  <a href="home.html">主页</a>
+  <a href="edit.html">创作</a>
+  <a href="login.html">注销</a>
+</div>
+<div class="parent">
+  <div class="left">
+    <div class="card">
+      <img src="../image/头像.jpg">
+      <span class="name">蜡笔小新</span>
+      <a href="#">github 地址</a>
+      <div class='one'>
+        <span>文章</span>
+        <span>分类</span>
+      </div>
+      <div class='one'>
+        <span>2</span>
+        <span>1</span>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="article">
+      <h2 class="title"></h2>
+      <span class="date"></span>
+      <div class="desc">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+  $.ajax({
+    url: "details"+location.search,
+    method: "GET",
+    success: function(data,status) {
+      alert("success");
+        buildBlog(data);
+        if(data.message != null)  {
+        alert(data.message);
+        location.assign("home.html");
+      }
+    }
+  })
+
+  function buildBlog(blog){
+    // 1. 更新 title
+    let titleDiv = document.querySelector('.title');
+    titleDiv.innerHTML = blog.title;
+    // 2. 更新 postTime
+    let postTime = document.querySelector('.date');
+    postTime.innerHTML = DateFormat(blog.postTime);
+    editormd.markdownToHTML('content', {markdown: blog.content});
+  }
+
+  // 把毫秒级时间戳转化成格式化日期
+  function DateFormat(timeStampMS) {
+    var date = new Date(timeStampMS);
+
+    var year = date.getFullYear(),
+            month = date.getMonth()+1,//月份是从0开始的
+            day = date.getDate(),
+            hour = date.getHours(),
+            min = date.getMinutes(),
+            sec = date.getSeconds();
+    var newTime = year + '-' +
+            (month < 10? '0' + month : month) + '-' +
+            (day < 10? '0' + day : day) + ' ' +
+            (hour < 10? '0' + hour : hour) + ':' +
+            (min < 10? '0' + min : min) + ':' +
+            (sec < 10? '0' + sec : sec);
+
+    return newTime;
+  }
+
+</script>
+</html>

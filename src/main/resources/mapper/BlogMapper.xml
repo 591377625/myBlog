@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheng.myblog.mapper.BlogMapper">
+    <!--  查找当前所有的文章  -->
+    <select id="getAllBlog" resultType="com.cheng.myblog.pojo.Blog">
+        select * from blog
+    </select>
+
+    <!--  查找当前文章详细内容  -->
+    <select id="getOneBlog" resultType="com.cheng.myblog.pojo.Blog">
+        select * from blog where blogId = #{blogId}
+    </select>
+<!--    &lt;!&ndash;  通过博客id查找所有的文章  &ndash;&gt;-->
+<!--    <select id="getBlogByBid" resultType="com.example.demo.model.Blog">-->
+<!--        select * from blog where blogId = #{blogId}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;  发布一篇博客  &ndash;&gt;-->
+<!--    <insert id="postBlog" keyColumn="userId" keyProperty="userId">-->
+<!--        insert into blog(title,content,postTime,userId) values(#{title},#{content},#{postTime},#{userId})-->
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;  删除一篇博客  &ndash;&gt;-->
+<!--    <delete id="deleteBlog">-->
+<!--        delete from blog where blogId = #{blogId}-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash;  更新一篇博客  &ndash;&gt;-->
+<!--    <update id="updateBlog">-->
+<!--        update blog set content = #{content},title = #{title} where blogId = #{blogId}-->
+<!--    </update>-->
+
+<!--    &lt;!&ndash;  根据当前用户Id获取所有的博客  &ndash;&gt;-->
+<!--    <select id="getAllBlogById" resultType="com.example.demo.model.Blog">-->
+<!--        select * from blog where userId = #{userId}-->
+<!--    </select>-->
+</mapper>
